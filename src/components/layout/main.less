@@ -1,0 +1,232 @@
+@import "../../vars.less";
+
+.layout {
+  position: relative;
+  height: 100vh;
+
+  &.withnavbar {
+    .main {
+      margin-left: 0;
+    }
+  }
+
+  &.fold {
+    .sider {
+      width: 42px;
+
+      .logo {
+        img {
+          width: 28px;
+          height: 28px;
+          margin: 6px 7px;
+        }
+      }
+
+      :global {
+        .ant-menu-root {
+          width: 100%;
+
+          & > .ant-menu-item {
+            padding: 0;
+            text-align: center;
+
+            .anticon {
+              font-size: 14px;
+              margin-right: 0;
+            }
+          }
+
+          & > .ant-menu-submenu {
+            & > .ant-menu-submenu-title {
+              padding: 0;
+              text-align: center;
+
+              .anticon {
+                font-size: 14px;
+                margin-right: 0;
+              }
+
+              &::after {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .main {
+      margin-left: 42px;
+    }
+  }
+
+  //头部菜单
+  .header {
+    :global .ant-menu-horizontal {
+      border: none;
+      background-color: @menu-horizontal-background-color;
+      & > .ant-menu-submenu {
+        float: right;
+        font-size: 18px;
+      }
+    }
+    box-shadow: @shadow-2;
+    position: relative;
+    //顶部菜单的左边的缩进按钮
+    .siderbutton {
+      height: 47px;
+      width: 47px;
+      line-height: 47px;
+      text-align: center;
+      font-size: 18px;
+      cursor: pointer;
+      position: absolute;
+
+      &:hover {
+        color: @primary-color;
+        background-color: fade(@primary-color, 15%);
+      }
+    }
+  }
+
+  //面包屑
+  .bread {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 24px;
+    margin: 15px 0;
+    text-indent: 10px;
+
+    .item {
+      font-size: 14px;
+      background-color: #fff;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    }
+
+  }
+
+  //主窗体内容
+  .main {
+    margin-left: @sider-width;
+    overflow: auto;
+    height: 100vh;
+    transition: @transition-ease-out;
+
+    .container {
+      margin: 24px;
+
+      //没有bread，626px
+      .content {
+        min-height: e("calc(100vh - 143px)");
+        position: relative;
+
+        :global .content-inner {
+          background: #fff;
+          padding: 24px;
+          box-shadow: @shadow-1;
+          min-height: e("calc(100vh - 143px)");
+        }
+      }
+
+      //有，610px
+      .content.hasBread {
+        min-height: e("calc(100vh - 198px)");
+        position: relative;
+
+        :global .content-inner {
+          background: #fff;
+          padding: 24px;
+          box-shadow: @shadow-1;
+          min-height: e("calc(100vh - 159px)");
+        }
+      }
+
+    }
+  }
+
+  //底部页脚
+  .footer {
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    background-color: @footer-background-color;
+    box-shadow: @shadow-2;
+    width: 100%;
+  }
+}
+
+//左边的sider
+.sider {
+  width: @sider-width;
+  background: @sider-background-color;
+  position: absolute;
+  overflow: visible;
+  padding-bottom: 24px;
+  height: @sider-height;
+  transition: @transition-ease-out;
+  box-shadow: @shadow-1;
+  z-index: 1000;
+  color: @sider-color;
+
+  //标志
+  .logo {
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    margin: 28px 0;
+    transition: @transition-ease-out;
+    overflow: hidden;
+    //标志的图片
+    img {
+      width: 40px;
+      height: 40px;
+      margin-right: 8px;
+      transition: @transition-ease-out;
+      border-radius: 50%;
+    }
+    //标志的文字
+    span {
+      vertical-align: top;
+      font-size: 16px;
+    }
+
+    .anticon {
+      transition: @transition-ease-out;
+    }
+  }
+
+}
+
+:global .ant-menu-dark.ant-menu-inline {
+  //主菜单的字体大小
+  .ant-menu-submenu-title,
+  .ant-menu-item {
+    font-size: @menu-submenu-fontsize;
+  }
+}
+
+//气泡菜单，用于下拉的
+.popovermenu {
+  width: 280px;
+  left: 12px !important;
+
+  :global .ant-popover-inner-content {
+    padding: 0;
+
+    .ant-menu-inline .ant-menu-item,
+    .ant-menu-vertical .ant-menu-item {
+      border-right: 0;
+      height: 48px;
+      line-height: 48px;
+    }
+
+    .ant-menu-inline .ant-menu-item-selected,
+    .ant-menu-inline .ant-menu-selected {
+      border-right: 0;
+    }
+  }
+}
+

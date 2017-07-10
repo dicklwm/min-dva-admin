@@ -1,0 +1,73 @@
+.login-page {
+  background: #d2d6de repeat-y top center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.login-box,
+.register-box {
+  width: 360px;
+  margin: 30% auto auto;
+
+  .login-logo,
+  .register-logo {
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 300;
+
+    img {
+      //height: 48px;
+      width: 48px;
+      margin-right: 15px;
+      vertical-align: sub;
+    }
+
+    span {
+      color: #fff;
+      font-family: Microsoft YaHei;
+    }
+  }
+
+  .login-box-body,
+  .register-box-body {
+    background: #fff;
+    padding: 20px;
+    border-top: 0;
+    color: #666;
+    box-shadow: 5px 5px 1px 1px;
+
+    :global .ant-input-group-wrapper {
+      display: block;
+    }
+
+    .login-box-msg,
+    .register-box-msg {
+      margin: 0;
+      text-align: center;
+      padding: 0 20px 20px 20px;
+      font-size: 18px;
+    }
+
+  }
+}
+
+@media (max-width: 768px) {
+  .login-box,
+  .register-box {
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 7%;
+  }
+}
+
+.login-form-button {
+  width: 100%;
+  margin-top: -10px;
+}
+
+.login-form-forgot {
+  float: right;
+}

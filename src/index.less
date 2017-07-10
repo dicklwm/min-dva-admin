@@ -1,0 +1,306 @@
+/**
+ * 全局的样式，可以对组件中的全局样式进行覆盖
+ */
+@import "./vars.less";
+
+:global {
+  /**
+    * 全局都可以调用的样式
+    */
+  .text-left {
+    text-align: left;
+  }
+  .text-overflow {
+    overflow: hidden; //超出的文本隐藏
+    text-overflow: ellipsis; //溢出用省略号显示
+    white-space: nowrap; //溢出不换行
+  }
+  //表格分页
+  .ant-pagination-large {
+    font-size: 16px !important;
+  }
+  .ant-pagination-right {
+    float: right;
+  }
+  // fixed型分页，固定定位在右下角，提供给最大高度的表格使用
+  .fixed-pagination {
+    position: fixed;
+    bottom: 0;
+    right: 24px;
+    margin: 24px 0;
+  }
+  // absolute型分页，提供给最小高度的表格使用
+  //.absolute-pagination {
+  //  position: absolute;
+  //  bottom: 0;
+  //  right: 24px;
+  //}
+  // 上面的按钮区的工具栏
+  .tool {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 12px;
+    margin: 15px 0;
+    background-color: #fff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+
+    button {
+      margin-right: 12px;
+    }
+  }
+  // Table 的筛选工具样式
+  .table-title {
+    margin-top: -16px;
+  }
+  .table-tool {
+    .ant-input-group-wrapper {
+      vertical-align: top;
+      margin-right: 6px;
+    }
+
+    //label:first-child {
+    //  margin-left: 0;
+    //}
+
+    label,
+    button {
+      margin: 0 3px;
+    }
+  }
+  // 单双行背景
+  .oddRows {
+    background-color: #fff;
+  }
+  .evenRows {
+    background-color: #f5f5f5;
+  }
+  .selectRow {
+    background-color: #ecf6fd !important;
+    cursor: pointer;
+  }
+  .canClickRow {
+    cursor: pointer;
+
+    &.activeRow {
+      background-color: #abcdef;
+      > td {
+        background-color: #abcdef !important;
+      }
+    }
+  }
+  // alert的图标变大
+  .large-icon-alert {
+    .ant-alert-icon {
+      font-size: 22px;
+    }
+  }
+  .close {
+    color: #666;
+    cursor: pointer;
+    font-size: 16px;
+    opacity: .5;
+    &:hover {
+      color: #ff0000;
+      cursor: pointer;
+    }
+  }
+  .check {
+    cursor: pointer;
+    color: #666;
+    font-size: 16px;
+    margin-right: 3px;
+    opacity: .5;
+    &:hover {
+      cursor: pointer;
+      color: #00a854;
+    }
+  }
+  .check-input {
+    padding-right: 44px !important;
+  }
+  .large-check-input {
+    padding-right: 75px !important;
+  }
+  // 刷新按钮的旋转效果
+  .hover-item {
+    &:hover {
+      .hover-spin {
+        animation: fa-spin 2s infinite linear;
+      }
+    }
+  }
+  // 完全居中的Modal
+  .vertical-center-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .ant-modal {
+      top: 0;
+      .ant-modal-body {
+        max-height: 500px;
+        overflow-y: auto;
+      }
+    }
+  }
+
+  /**
+    * 样式覆盖
+    */
+  body {
+    font-size: 12px !important;
+    overflow-y: hidden;
+    background-color: @body-background-color;
+  }
+
+  .ant-menu-dark.ant-menu-inline {
+    //主菜单的字体大小
+    .ant-menu-submenu-title,
+    .ant-menu-item {
+      font-size: @menu-submenu-fontsize;
+    }
+    //子菜单的各item
+    .ant-menu-sub {
+      .ant-menu-item {
+        //子菜单的文字大小
+        a {
+          font-size: @menu-item-fontsize;
+        }
+      }
+    }
+  }
+  .ant-modal-mask {
+    background-color: rgba(55, 55, 55, 0.2);
+  }
+  .ant-modal-content {
+    box-shadow: none;
+  }
+  .ant-card {
+    &:hover {
+      overflow: auto;
+    }
+  }
+  .ant-notification {
+    width: auto;
+    max-width: 800px;
+  }
+  .ant-notification {
+    z-index: 1200;
+  }
+  .ant-popover {
+    z-index: 1600;
+  }
+  // 表头字体
+  .ant-table-thead {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  // 表格居中
+  .ant-table {
+    .ant-table-thead > tr > th {
+      text-align: center;
+      background-color: @table-thead-th;
+      // 变大筛选按钮
+      .anticon-filter {
+        font-size: 18px;
+      }
+    }
+    .ant-table-tbody > tr > td {
+      text-align: center;
+    }
+    &.ant-table-small {
+      .ant-table-thead > tr > th {
+        background: #f7f7f7;
+      }
+      .ant-table-body > table {
+        padding: 0;
+      }
+    }
+  }
+  // 变大表格的排序按钮
+  :root .ant-table-column-sorter {
+    height: 18px;
+    .on,
+    .off {
+      height: 8px;
+
+      .anticon-caret-up,
+      .anticon-caret-down {
+        font-size: 20px;
+      }
+    }
+  }
+  // 面包屑的link标签
+  .ant-breadcrumb-link {
+    .anticon + span {
+      margin-left: 4px;
+    }
+  }
+  .ant-form-item-control {
+    vertical-align: middle;
+  }
+  // 树状
+  .ant-tree {
+    // 树状带tools
+    li {
+      .ant-tree-node-content-wrapper {
+        position: relative;
+        .tools {
+          opacity: 0;
+          position: absolute;
+          right: 0;
+          i {
+            margin: 0 2px;
+            font-size: 18px;
+            cursor: pointer;
+            color: #bbb;
+            transition: all .3s;
+            &:hover {
+              color: #000;
+            }
+          }
+        }
+        &:hover {
+          .tools {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+html, body, :global(#root) {
+  height: 100%;
+}
+
+/**
+  * scrollbar 滚动条的样式
+  */
+
+//转角位
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+//滚动条轨道两端的按钮
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+//拖动条
+::-webkit-scrollbar-thumb {
+  background-color: rgba(204, 204, 204, .5);
+  border-radius: 10px;
+  &:hover {
+    background-color: #bcbcbc;
+  }
+}
+
+//整体
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
